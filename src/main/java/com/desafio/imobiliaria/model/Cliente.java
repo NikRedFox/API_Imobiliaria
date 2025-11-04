@@ -17,7 +17,7 @@ public class Cliente {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = true, unique = true)
     private String cpf;
 
     @Column(unique = true)
@@ -50,6 +50,9 @@ public class Cliente {
         this.email = email;
         this.cidade = cidade;
     }
+
+    public Long getClienteId() { return clienteId;}
+    public void setClienteId(Long clienteId) { this.clienteId = clienteId;}
 
     public String getNome(){return nome;}
     public void setNome(String nome) {

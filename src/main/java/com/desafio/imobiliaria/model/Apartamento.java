@@ -19,6 +19,9 @@ public class Apartamento {
     private String endereco;
 
     @Column(nullable = false)
+    private String cidade;
+
+    @Column(nullable = false)
     private Integer quartos;
 
     @Column(nullable = false)
@@ -29,18 +32,20 @@ public class Apartamento {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private StatusAP status;
+    private StatusAP status = StatusAP.DISPONIVEL;
 
     public Apartamento(){}
 
     public Apartamento(
         String endereco,
+        String cidade,
         Integer quartos,
         Double area,
         BigDecimal preco,
         StatusAP status
     ){
         this.endereco = endereco;
+        this.cidade = cidade;
         this.quartos = quartos;
         this.area = area;
         this.preco = preco;
@@ -56,6 +61,9 @@ public class Apartamento {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    public String getCidade(){return cidade;}
+    public void setCidade(String cidade) { this.cidade = cidade; }
 
     public Integer getQuartos(){return quartos;}
     public void setQuartos(Integer quartos) {
